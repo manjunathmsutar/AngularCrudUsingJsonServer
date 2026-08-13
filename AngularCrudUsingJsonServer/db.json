@@ -1,0 +1,28 @@
+{
+  "Users": [
+    {
+      "id": "5b78",
+      "name": "Manjunath Sutar",
+      "email": "manjunath@gmail.com",
+      "gender": "male",
+      "password": "mmss.999",
+      "phone": "9656235689"
+    },
+    {
+      "id": "238a",
+      "name": "Megha Sutar",
+      "email": "megha@gmail.com",
+      "gender": "female",
+      "password": "ms.65986",
+      "phone": "9865236542"
+    },
+    {
+      "name": "rahul kumar",
+      "email": "rahulkumar@gmail.com",
+      "gender": "male",
+      "password": "kumar.2545999",
+      "phone": "9653213456",
+      "id": "d7ee"
+    }
+  ]
+}

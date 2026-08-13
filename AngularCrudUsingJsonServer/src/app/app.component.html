@@ -1,0 +1,37 @@
+<h1>AngularCrudJson</h1>
+
+<table>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>EmaiId</th>
+<th>Gender</th>
+<th>Password</th>
+<th>Phone</th>
+<th>Action</th>
+</tr>
+<tr *ngFor="let user of users">
+<td>{{user.id}}</td>   
+<td>{{user.name}}</td>
+<td>{{user.email}}</td>
+<td>{{user.gender}}</td>
+<td>{{user.password}}</td>
+<td>{{user.phone}}</td>
+<td>
+    <button (click)="onEdit(user)">Edit</button>
+    <button (click)="delete(user.id)">Delete</button>
+  </td>
+</tr>
+</table><hr>
+<h3>Add_Users</h3>
+<form [formGroup]="RegForm">
+    <input type="text" formControlName="name" placeholder="Enter Name"><br>
+    <input type="text" formControlName="email" placeholder="Enter Email"><br>
+    <input type="text" formControlName="gender" placeholder="Enter Gender"><br>
+    <input type="text" formControlName="password" placeholder="Enter Password"><br>
+    <input type="text" formControlName="phone" placeholder="Enter Phone"><br>
+    <button (click)="addusers(RegForm.value)">AddUsers</button>
+    <button (click)="updateusers(RegForm.value)">UpdateUsers</button>
+</form>
+
+ 
