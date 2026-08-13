@@ -1,2 +1,0 @@
-# AngularCrudUsingJsonServer
-CRUD Code
