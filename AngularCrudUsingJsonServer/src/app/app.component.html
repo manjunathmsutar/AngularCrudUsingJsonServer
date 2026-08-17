@@ -5,33 +5,37 @@
 <th>ID</th>
 <th>Name</th>
 <th>EmaiId</th>
-<th>Gender</th>
 <th>Password</th>
+<th>Gender</th>
+<th>age</th>
 <th>Phone</th>
 <th>Action</th>
 </tr>
-<tr *ngFor="let user of users">
-<td>{{user.id}}</td>   
-<td>{{user.name}}</td>
-<td>{{user.email}}</td>
-<td>{{user.gender}}</td>
-<td>{{user.password}}</td>
-<td>{{user.phone}}</td>
+<tr *ngFor="let student of students">
+<td>{{student._id}}</td>   
+<td>{{student.name}}</td>
+<td>{{student.email}}</td>
+<td>{{student.password}}</td>
+<td>{{student.age}}</td>
+<td>{{student.gender}}</td>
+<td>{{student.phone}}</td>
 <td>
-    <button (click)="onEdit(user)">Edit</button>
-    <button (click)="delete(user.id)">Delete</button>
+    <button (click)="onEdit(student)">Edit</button>
+    <button (click)="delete(student._id)">Delete</button>
+    
   </td>
 </tr>
 </table><hr>
-<h3>Add_Users</h3>
+<h3>Add_students</h3>
 <form [formGroup]="RegForm">
     <input type="text" formControlName="name" placeholder="Enter Name"><br>
     <input type="text" formControlName="email" placeholder="Enter Email"><br>
-    <input type="text" formControlName="gender" placeholder="Enter Gender"><br>
     <input type="text" formControlName="password" placeholder="Enter Password"><br>
+    <input type="text" formControlName="gender" placeholder="Enter Gender"><br>
     <input type="text" formControlName="phone" placeholder="Enter Phone"><br>
-    <button (click)="addusers(RegForm.value)">AddUsers</button>
-    <button (click)="updateusers(RegForm.value)">UpdateUsers</button>
+    <input type="text" formControlName="age" placeholder="Enter age"><br>
+    <button (click)="addstudents(RegForm.value)">Add</button>
+    <button (click)="updatestudents(RegForm.value)">Update</button>
 </form>
 
  

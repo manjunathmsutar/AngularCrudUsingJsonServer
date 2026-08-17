@@ -11,13 +11,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AppComponent {
   title = 'AngularPractice';
   RegForm!:FormGroup;
-  users:any;
+  students:any;
   filteredUsers: any[] = [];
-  id:number=0;
+  _id=''
   name=''
   email=''
   gender=''
   password=''
+  age=''
   phone=''
   user=inject(UsersService)
   fb=inject(FormBuilder)
@@ -28,42 +29,49 @@ export class AppComponent {
       email:['',Validators.required],
       gender:['',Validators.required],
       password:['',Validators.required],
+      age:['',Validators.required],
       phone:['',Validators.required],
      })
-     this.getallusers();
+     this.getallstudents();
     
     }
     
-  getallusers(){
-    this.user.getusers().subscribe((res)=>{
-      this.users=res;
+  getallstudents(){
+    this.user.getstudents().subscribe((res)=>{
+      this.students=res;
+      console.log(this.students)
      }) 
   }
-  addusers(data:any){
-    this.user.adduser(data).subscribe((res)=>{
-      alert('User Added ')
-     this.getallusers();
+  addstudents(data:any){
+    this.user.addstudents(data).subscribe((res)=>{
+      alert('student Added ')
+     this.getallstudents();
      this.RegForm.reset();
     })
   }
-  delete(id:number):void{
-    this.user.deleteusers(id).subscribe((res)=>{
-    alert('User Deleted ')
-    this.getallusers();
+ 
+  delete(_id:string){
+    this.user.deletestudents(_id).subscribe((res)=>{
+      console.log(res)
+      alert("Student Deleted")
+      this.getallstudents()
+      
     })
   }
-  onEdit(user:any):void{
-    this.id=user.id;
+
+  onEdit(user:any){
+    this._id=user._id;
     this.RegForm.controls['name'].setValue(user.name)
     this.RegForm.controls['email'].setValue(user.email)
     this.RegForm.controls['gender'].setValue(user.gender)
     this.RegForm.controls['password'].setValue(user.password)
+    this.RegForm.controls['age'].setValue(user.age)
     this.RegForm.controls['phone'].setValue(user.phone)
   }
-  updateusers(data:any){
-    this.user.updateuser(this.id,data).subscribe((res)=>{
-     alert('User Updated');
-     this.getallusers();
+  updatestudents(data:any){
+    this.user.updatestudents(this._id,data).subscribe((res)=>{
+     alert('student Updated');
+     this.getallstudents();
      this.RegForm.reset();
     })
   }

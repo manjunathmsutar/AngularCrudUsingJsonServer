@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http'
   providedIn: 'root'
 })
 export class UsersService {
-url='http://localhost:3000/Users'
+url='https://nodejs-code-hahzg4b6ffg4dhgp.canadaeast-01.azurewebsites.net'
  
  http= inject (HttpClient)
 
@@ -14,16 +14,16 @@ url='http://localhost:3000/Users'
   constructor() { }
   
 
-  getusers(){
-    return this.http.get(this.url);
+  getstudents(){
+    return this.http.get(`${this.url}/get`);
   }
-  adduser(data:any){
-  return this.http.post(this.url,data)
+  addstudents(data:any){
+  return this.http.post(`${this.url}/post`,data)
   }
-  deleteusers(id:number){
-   return this.http.delete(`${this.url}/${id}`)
+  deletestudents(_id:string){
+   return this.http.delete(`${this.url}/${_id}`)
   }
-  updateuser(id:number,data:any){
-   return this.http.put(`${this.url}/${id}`, data)
+  updatestudents(_id:string,data:any){
+   return this.http.put(`${this.url}/${_id}`,data)
   }
 }
